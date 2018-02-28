@@ -1,0 +1,46 @@
+# Copyright (c) 2013-2018 LG Electronics, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+load(webos-variables)
+
+# Allows the project to define a list of upstart files to process
+# for possible variable substition. The process will replace any
+# Qt variable that it encounters, i.e.
+# exec $$[QT_INSTALL_BINS]/my-app will become /usr/bin/my-app if
+# the prefix was set /usr when compiling Qt
+UPSTART_FILES = $$WEBOS_UPSTART_FILES_IN
+!isEmpty(UPSTART_FILES) {
+    message("WEBOS - Processing upstart files: $$UPSTART_FILES")
+    QMAKE_SUBSTITUTES += $$UPSTART_FILES
+    for (UPSTART_FILE, UPSTART_FILES) {
+        # substitued file will be without ".in" suffix so strip it
+        UPSTART_FILE=$$replace(UPSTART_FILE, "\.in$", )
+        # substituted files will be stored in shadowed location
+        UPSTART_FILE=$$shadowed($$absolute_path($$UPSTART_FILE, $$_PRO_FILE_PWD_))
+        upstart.files += $$UPSTART_FILE
+    }
+    upstart.path = $$WEBOS_INSTALL_UPSTARTCONFDIR
+    INSTALLS += upstart
+    message("WEBOS - upstart files will be installed to: $$WEBOS_INSTALL_UPSTARTCONFDIR")
+} else {
+    message("WEBOS - no upstart files defined")
+}
+
+release: ARTIFACT_POSTFIX = "-release-$$TARGET_MACHINE"
+debug: ARTIFACT_POSTFIX = "-debug-$$TARGET_MACHINE"
+
+OBJECTS_DIR = .obj$$ARTIFACT_POSTFIX
+MOC_DIR = .moc$$ARTIFACT_POSTFIX

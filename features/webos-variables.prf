@@ -1,0 +1,91 @@
+# Copyright (c) 2013-2018 LG Electronics, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# webosSet(<variable>, [<default1>], [<default2>], [<default3>], .. [<default5>])
+# - set <variable> if not defined
+# - use first non-empty value within <default1>, <default2> and <default3>
+defineTest(webosSet) {
+    variable = $$1
+    !defined($$variable, var) {
+        value = $$2
+        # qmake have no indirect ref to var or eval
+        # found no way to put all arguments in one variable
+        # next lines looks ugly because of that
+        isEmpty(value): value = $$3
+        isEmpty(value): value = $$4
+        isEmpty(value): value = $$5
+        isEmpty(value): value = $$5
+        !isEmpty(value) {
+             $$variable = $$value
+             export($$variable)
+        }
+    }
+}
+
+### Lets setup qmake variables according to env vars if first is not set yet
+
+## Since webos-variables.prf never worked before this commit
+## This section is purely for compatibility with bb/shell scripts that builds
+## that needs to override
+webosSet(WEBOS_INSTALL_BINS, $$(WEBOS_INSTALL_BINS))
+webosSet(WEBOS_INSTALL_LIBS, $$(WEBOS_INSTALL_LIBS))
+webosSet(WEBOS_INSTALL_HEADERS, $$(WEBOS_INSTALL_HEADERS))
+webosSet(WEBOS_INSTALL_QML, $$(WEBOS_INSTALL_QML))
+webosSet(WEBOS_INSTALL_WEBOS_APPLICATIONSDIR, $$(webos_applicationsdir))
+webosSet(WEBOS_PREFERENCESDIR, $$(webos_preferencesdir))
+
+## This section is base on similar section from cmake-modules-webos
+# values of qmake variables are not changed if they set
+# The environment setting take precedence over constructed value
+# Path prefixes
+webosSet(WEBOS_INSTALL_ROOT, $$(base_prefix), $$WEBOS_INSTALL_ROOT)
+webosSet(WEBOS_INSTALL_PREFIX, $$(prefix), $$WEBOS_INSTALL_ROOT/usr)
+
+# Architecture independent paths
+webosSet(WEBOS_INSTALL_DATADIR, $$(datadir), $$WEBOS_INSTALL_PREFIX/share)
+webosSet(WEBOS_INSTALL_SYSCONFDIR, $$(sysconfdir), $$WEBOS_INSTALL_ROOT/etc)
+webosSet(WEBOS_INSTALL_SYSBUS_DATADIR, $$(sysbus_datadir), $$WEBOS_INSTALL_DATADIR/luna-service2)
+
+# Variables invented by us for other standard locations
+# WEBOS_INSTALL_UPSTARTCONFDIR eventually will default to $$WEBOS_INSTALL_SYSCONFDIR/init
+webosSet(WEBOS_INSTALL_UPSTARTCONFDIR, $$(webos_upstartconfdir), $$WEBOS_INSTALL_SYSCONFDIR/event.d)
+
+# Variables for webOS additions to the FS hierarchy
+webosSet(WEBOS_INSTALL_SYSBUS_SERVICEDIR, $$(webos_sysbus_servicedir), $$WEBOS_INSTALL_SYSBUS_DATADIR/services.d)
+webosSet(WEBOS_INSTALL_SYSBUS_PUBSERVICESDIR, $$(webos_sysbus_pubservicesdir), $$WEBOS_INSTALL_DATADIR/dbus-1/services)
+webosSet(WEBOS_INSTALL_SYSBUS_PRVSERVICESDIR, $$(webos_sysbus_prvservicesdir), $$WEBOS_INSTALL_DATADIR/dbus-1/system-services)
+webosSet(WEBOS_INSTALL_SYSBUS_ROLESDIR, $$(webos_sysbus_rolesdir), $$WEBOS_INSTALL_SYSBUS_DATADIR/roles.d)
+webosSet(WEBOS_INSTALL_SYSBUS_PUBROLESDIR, $$(webos_sysbus_pubrolesdir), $$WEBOS_INSTALL_DATADIR/ls2/roles/pub)
+webosSet(WEBOS_INSTALL_SYSBUS_PRVROLESDIR, $$(webos_sysbus_prvrolesdir), $$WEBOS_INSTALL_DATADIR/ls2/roles/prv)
+webosSet(WEBOS_INSTALL_SYSBUS_APIDIR, $$(webos_sysbus_apipermissionsdir), $$WEBOS_INSTALL_SYSBUS_DATADIR/api-permissions.d)
+webosSet(WEBOS_INSTALL_SYSBUS_PERMDIR, $$(webos_sysbus_permissionsdir), $$WEBOS_INSTALL_SYSBUS_DATADIR/client-permissions.d)
+webosSet(WEBOS_INSTALL_SYSBUS_GROUPDIR, $$(webos_sysbus_groupsdir), $$WEBOS_INSTALL_SYSBUS_DATADIR/groups.d)
+
+# Originally this file contained a setting up variables that can be rendered
+# now like:
+#  webosSet(WEBOS_INSTALL_BINS, $$(WEBOS_INSTALL_BINS))
+#  webosSet(WEBOS_INSTALL_LIBS, $$(WEBOS_INSTALL_LIBS))
+#  webosSet(WEBOS_INSTALL_HEADERS, $$(WEBOS_INSTALL_HEADERS))
+#  webosSet(WEBOS_INSTALL_QML, $$(WEBOS_INSTALL_QML))
+# But since this file was loaded only under desktop they left untouched in bb-build.
+# So keep them untouched for compatibility.
+# For desktop build all those variables already was passed to qmake and thus
+# they preserved that values without using environment alternatives.
+#
+# TODO: This script will need to include WEBOS_INSTALL_BINDIR and others. And
+#       projects that uses those variable and associated bb/shell scripts that
+#       builds them needs to be changed as well (to use that vars instead of
+#       WEBOS_INSTALL_BINS and others).

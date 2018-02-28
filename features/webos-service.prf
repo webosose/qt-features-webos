@@ -1,0 +1,145 @@
+# Copyright (c) 2013-2018 LG Electronics, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Allows the project to select a folder where template files for sysbus are
+# located. Each file should end with ".in" suffix and is subject for qmake
+# variables usbsitutions.
+# i.e.
+# exec $$[QT_INSTALL_BINS]/my-app will become /usr/bin/my-app if
+# the prefix was set /usr when compiling Qt
+#
+# Note that you should provide WEBOS_SYSBUS_DIR pointing to folder with
+# a hierarchy that looks like:
+#
+#  $$WEBOS_SYSBUS_DIR
+#  |
+#  +- roles
+#  |  |
+#  |  +- my.service.com.role.json.in (file with qmake substitutions)
+#  |  |
+#  |  +- other.service.com.role.json.in
+#  |  ...
+#  +- services
+#  |  |
+#  |  +- my.service.com.service.in
+#  |  ...
+#
+#  Please note! The old scheme, with public and private roles, is deprecated:
+#
+#  $$WEBOS_SYSBUS_DIR
+#  |
+#  +- roles-prv
+#  |  |
+#  |  +- my.service.com.in (file with qmake substitutions)
+#  |  |
+#  |  +- other.service.com.in
+#  |  ...
+#  +- roles-pub
+#  |  |
+#  |  +- my.service.com.in
+#  |  ...
+#  +- services-prv
+#  |  |
+#  |  +- my.service.com.service.in
+#  |  ...
+#  +- services-pub
+#     ...
+
+load(webos-variables)
+
+services.path = $$WEBOS_INSTALL_SYSBUS_SERVICEDIR
+services_pub.path = $$WEBOS_INSTALL_SYSBUS_PUBSERVICESDIR
+services_prv.path = $$WEBOS_INSTALL_SYSBUS_PRVSERVICESDIR
+roles.path = $$WEBOS_INSTALL_SYSBUS_ROLESDIR
+roles_pub.path = $$WEBOS_INSTALL_SYSBUS_PUBROLESDIR
+roles_prv.path = $$WEBOS_INSTALL_SYSBUS_PRVROLESDIR
+
+# paths for ACG
+service.path = $$WEBOS_INSTALL_SYSBUS_SERVICEDIR
+role.path = $$WEBOS_INSTALL_SYSBUS_ROLESDIR
+api.path = $$WEBOS_INSTALL_SYSBUS_APIDIR
+perm.path = $$WEBOS_INSTALL_SYSBUS_PERMDIR
+group.path = $$WEBOS_INSTALL_SYSBUS_GROUPDIR
+
+!isEmpty(WEBOS_SYSBUS_DIR) {
+    WEBOS_SYSBUS_DIR = $$absolute_path($$WEBOS_SYSBUS_DIR, $$_PRO_FILE_PWD_)
+    message("Using WEBOS_SYSBUS_DIR: $$WEBOS_SYSBUS_DIR")
+
+    # install legacy files
+    SYSBUS_KINDS = prv pub
+    SYSBUS_FILE_TYPES = roles services
+
+    for(bus, SYSBUS_KINDS) {
+        for(type, SYSBUS_FILE_TYPES) {
+            found_files=$$files("$$WEBOS_SYSBUS_DIR/$$type-$$bus/*.in")
+            !isEmpty(found_files) {
+                warning("Deprecated layout for LS2 files. Please use new scheme with single LS2 bus instead.")
+                QMAKE_SUBSTITUTES += $$found_files
+                for(found_file, found_files) {
+                    # substituted files will be stored in shadowed location
+                    $${type}_$${bus}.files += $$shadowed($$replace(found_file, "\.in$", ))
+                    SYSBUS_FILES += $$replace(found_file, "\.in$", )
+                }
+                INSTALLS += $${type}_$${bus}
+            }
+        }
+    }
+
+    for(type, SYSBUS_FILE_TYPES) {
+        found_files=$$files("$$WEBOS_SYSBUS_DIR/$$type/*.in")
+        !isEmpty(found_files) {
+            QMAKE_SUBSTITUTES += $$found_files
+            for(found_file, found_files) {
+                # substituted files will be stored in shadowed location
+                $${type}.files += $$shadowed($$replace(found_file, "\.in$", ))
+                SYSBUS_FILES += $$replace(found_file, "\.in$", )
+            }
+            INSTALLS += $${type}
+        }
+    }
+
+    # install ACG files
+    SYSBUS_FILE_TYPE_IN = role service
+    SYSBUS_FILE_TYPE = perm api group
+
+    for (type, SYSBUS_FILE_TYPE_IN) {
+        found_files = $$files("$$WEBOS_SYSBUS_DIR/*$$type*.in")
+        !isEmpty(found_files) {
+            QMAKE_SUBSTITUTES += $$found_files
+            for (found_file, found_files) {
+                # substituted files will be stored in shadowed location
+                $${type}.files += $$shadowed($$replace(found_file, "\.in$", ))
+                SYSBUS_FILES += $$replace(found_file, "\.in$", )
+            }
+            INSTALLS += $${type}
+        }
+    }
+
+    for (type, SYSBUS_FILE_TYPE) {
+        found_files = $$files("$$WEBOS_SYSBUS_DIR/*.$$type*.json")
+        !isEmpty(found_files) {
+            for (found_file, found_files) {
+                $${type}.files += $$found_file
+                SYSBUS_FILES += $$found_file
+            }
+            INSTALLS += $${type}
+        }
+    }
+
+    isEmpty(SYSBUS_FILES):warning("No sysbus files found")
+} else {
+    error("Variable WEBOS_SYSBUS_DIR is not set while webos-service included in CONFIG (either set variable or disable feature)")
+}
