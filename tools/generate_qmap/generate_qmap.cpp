@@ -18,7 +18,11 @@
 #include <QDataStream>
 #include <QDebug>
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 8, 0)
 #include <QtPlatformSupport/private/qevdevkeyboardhandler_p.h>
+#else
+#include <QtInputSupport/private/qevdevkeyboardhandler_p.h>
+#endif
 
 //HACK : to use evdev default keymap which is private static variable
 //Change to the class name for local usage QEvdevKeyboardHandler -> WebOSKeymapHandler
@@ -30,7 +34,11 @@ public:
     static const QEvdevKeyboardMap::Composing s_keycompose_default[];
 };
 #define QEvdevKeyboardHandler WebOSKeymapHandler
+#if QT_VERSION < QT_VERSION_CHECK(5, 8, 0)
 #include <QtPlatformSupport/private/qevdevkeyboard_defaultmap_p.h>
+#else
+#include <QtInputSupport/private/qevdevkeyboard_defaultmap_p.h>
+#endif
 
 #include "webos_keymap_p.h"
 

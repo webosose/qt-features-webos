@@ -15,4 +15,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 TEMPLATE = subdirs
-SUBDIRS = generate_qmap
+
+host_build {
+    SUBDIRS += generate_qmap
+}

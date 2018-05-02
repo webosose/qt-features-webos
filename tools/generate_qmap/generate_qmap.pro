@@ -14,13 +14,17 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-option(host_build)
-
 CONFIG += no_module_headers internal_module
 
 TARGET = generate_qmap
 CONFIG += console warn_off
-QT = core platformsupport-private
+QT = core
+
+equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 8) {
+    QT += platformsupport-private
+} else {
+    QT += input_support-private
+}
 
 SOURCES += generate_qmap.cpp
 
