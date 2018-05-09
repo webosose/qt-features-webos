@@ -53,6 +53,9 @@ QT_BEGIN_HEADER
         Key_webOS_Netflix           = 0x01200028, \
         Key_webOS_Amazon            = 0x01200029, \
         Key_webOS_IVI               = 0x0120002a, \
+        Key_webOS_Accessibility     = 0x0120002b, \
+        Key_webOS_UpDown           = 0x0120002c, \
+        Key_webOS_USP                  = 0x0120002d, \
         Key_webOS_3DMode            = 0x01200031, \
         Key_webOS_ScreenRemote      = 0x01200032, \
         Key_webOS_QMenu             = 0x01200033, \
