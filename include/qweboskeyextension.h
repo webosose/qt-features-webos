@@ -56,6 +56,8 @@ QT_BEGIN_HEADER
         Key_webOS_Accessibility     = 0x0120002b, \
         Key_webOS_UpDown           = 0x0120002c, \
         Key_webOS_USP                  = 0x0120002d, \
+        Key_webOS_VoiceBack         = 0x0120002e, \
+        Key_webOS_VoiceExit         = 0x0120002f, \
         Key_webOS_3DMode            = 0x01200031, \
         Key_webOS_ScreenRemote      = 0x01200032, \
         Key_webOS_QMenu             = 0x01200033, \
