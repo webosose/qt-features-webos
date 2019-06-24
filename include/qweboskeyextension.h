@@ -44,6 +44,7 @@ QT_BEGIN_HEADER
         Key_webOS_STBMenu        = 0x01200018, \
         Key_webOS_STBPower       = 0x01200019, \
         Key_webOS_ScreenDown     = 0x0120001a, \
+        Key_webOS_TonePlusVoice  = 0x0120001f, \
         Key_webOS_ChannelUp   = 0x01200021, \
         Key_webOS_ChannelDown = 0x01200022, \
         Key_webOS_ChannelDash = 0x01200023, \
