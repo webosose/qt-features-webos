@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2018 LG Electronics, Inc.
+# Copyright (c) 2013-2019 LG Electronics, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -62,6 +62,8 @@ webosSet(WEBOS_INSTALL_SYSBUS_DATADIR, $$(sysbus_datadir), $$WEBOS_INSTALL_DATAD
 # Variables invented by us for other standard locations
 # WEBOS_INSTALL_UPSTARTCONFDIR eventually will default to $$WEBOS_INSTALL_SYSCONFDIR/init
 webosSet(WEBOS_INSTALL_UPSTARTCONFDIR, $$(webos_upstartconfdir), $$WEBOS_INSTALL_SYSCONFDIR/event.d)
+# WEBOS_INSTALL_WEBOS_SDKDIR
+webosSet(WEBOS_INSTALL_WEBOS_SDKDIR, $$(webos_sdkdir))
 
 # Variables for webOS additions to the FS hierarchy
 webosSet(WEBOS_INSTALL_SYSBUS_SERVICEDIR, $$(webos_sysbus_servicedir), $$WEBOS_INSTALL_SYSBUS_DATADIR/services.d)
