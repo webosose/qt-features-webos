@@ -216,6 +216,10 @@ QT_BEGIN_HEADER
         Key_webOS_LocalSettingsLong = 0x01200474, \
         Key_webOS_LocalDownLong     = 0x01200462, \
         Key_webOS_LocalAutoLong     = 0x01200479, \
+        Key_webOS_SFP               = 0x01200309, \
+        Key_webOS_SDI1              = 0x01200310, \
+        Key_webOS_SDI2              = 0x01200311, \
+        Key_webOS_SDI3              = 0x01200312, \
         /* For hotel */ \
         Key_webOS_Alarm             = 0x01200315, \
         Key_webOS_Portal            = 0x01200304, \
