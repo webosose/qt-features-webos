@@ -1,4 +1,4 @@
-// Copyright (c) 2013-2018 LG Electronics, Inc.
+// Copyright (c) 2013-2020 LG Electronics, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -44,6 +44,10 @@ QT_BEGIN_HEADER
         Key_webOS_STBMenu        = 0x01200018, \
         Key_webOS_STBPower       = 0x01200019, \
         Key_webOS_ScreenDown     = 0x0120001a, \
+        Key_webOS_Hotstar        = 0x0120001b, \
+        Key_webOS_Disneyplus     = 0x0120001c, \
+        Key_webOS_LGChannels     = 0x0120001d, \
+        Key_webOS_GoogleVoice    = 0x0120001e, \
         Key_webOS_TonePlusVoice  = 0x0120001f, \
         Key_webOS_ChannelUp   = 0x01200021, \
         Key_webOS_ChannelDown = 0x01200022, \
@@ -56,8 +60,8 @@ QT_BEGIN_HEADER
         Key_webOS_Amazon            = 0x01200029, \
         Key_webOS_IVI               = 0x0120002a, \
         Key_webOS_Accessibility     = 0x0120002b, \
-        Key_webOS_UpDown           = 0x0120002c, \
-        Key_webOS_USP                  = 0x0120002d, \
+        Key_webOS_UpDown            = 0x0120002c, \
+        Key_webOS_USP               = 0x0120002d, \
         Key_webOS_VoiceBack         = 0x0120002e, \
         Key_webOS_VoiceExit         = 0x0120002f, \
         Key_webOS_ALEXA             = 0x01200030, \
@@ -70,6 +74,12 @@ QT_BEGIN_HEADER
         Key_webOS_AspectRatio       = 0x01200037, \
         Key_webOS_LiveTVMenu        = 0x01200038, \
         Key_webOS_TVGuide           = 0x01200039, \
+        Key_webOS_RakutenTV         = 0x0120003a, \
+        Key_webOS_Globoplay         = 0x0120003b, \
+        Key_webOS_ZEE5              = 0x0120003c, \
+        Key_webOS_Okko              = 0x0120003d, \
+        Key_webOS_Kinopoisk         = 0x0120003e, \
+        Key_webOS_Watchaplay        = 0x0120003f, \
         Key_webOS_AudioDescription  = 0x01200040, \
         Key_webOS_MHP               = 0x01200041, \
         Key_webOS_Teletext          = 0x01200042, \
@@ -90,6 +100,8 @@ QT_BEGIN_HEADER
         Key_webOS_RecordList        = 0x01200057, \
         Key_webOS_StoreMode         = 0x01200058, \
         Key_webOS_MagicLink         = 0x01200059, \
+        Key_webOS_UNext             = 0x0120005a, \
+        Key_webOS_New               = 0x0120005b, \
         /* Local keys (front panel buttons) */ \
         Key_webOS_LocalUp           = 0x01200061, \
         Key_webOS_LocalDown         = 0x01200062, \
