@@ -102,6 +102,7 @@ QT_BEGIN_HEADER
         Key_webOS_MagicLink         = 0x01200059, \
         Key_webOS_UNext             = 0x0120005a, \
         Key_webOS_New               = 0x0120005b, \
+        Key_webOS_Close             = 0x0120005c, \
         /* Local keys (front panel buttons) */ \
         Key_webOS_LocalUp           = 0x01200061, \
         Key_webOS_LocalDown         = 0x01200062, \
