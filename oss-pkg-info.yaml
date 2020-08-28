@@ -1,5 +1,4 @@
 Open Source Software Package:
 - name: webOSOSE-qt-features-webos
-  version: 1.0.0
   source: https://github.com/webosose/qt-features-webos
   license: Apache-2.0
