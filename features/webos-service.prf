@@ -86,6 +86,7 @@ group.path = $$WEBOS_INSTALL_SYSBUS_GROUPDIR
         for(type, SYSBUS_FILE_TYPES) {
             found_files=$$files("$$WEBOS_SYSBUS_DIR/$$type-$$bus/*.in")
             !isEmpty(found_files) {
+                message("Found SYSBUS_KINDS: $$found_files")
                 warning("Deprecated layout for LS2 files. Please use new scheme with single LS2 bus instead.")
                 QMAKE_SUBSTITUTES += $$found_files
                 for(found_file, found_files) {
@@ -101,6 +102,7 @@ group.path = $$WEBOS_INSTALL_SYSBUS_GROUPDIR
     for(type, SYSBUS_FILE_TYPES) {
         found_files=$$files("$$WEBOS_SYSBUS_DIR/$$type/*.in")
         !isEmpty(found_files) {
+            message("Found SYSBUS_FILE_TYPES: $$found_files")
             QMAKE_SUBSTITUTES += $$found_files
             for(found_file, found_files) {
                 # substituted files will be stored in shadowed location
@@ -118,6 +120,7 @@ group.path = $$WEBOS_INSTALL_SYSBUS_GROUPDIR
     for (type, SYSBUS_FILE_TYPE_IN) {
         found_files = $$files("$$WEBOS_SYSBUS_DIR/*$$type*.in")
         !isEmpty(found_files) {
+            message("Found SYSBUS_FILE_TYPE_IN: $$found_files")
             QMAKE_SUBSTITUTES += $$found_files
             for (found_file, found_files) {
                 # substituted files will be stored in shadowed location
@@ -131,6 +134,7 @@ group.path = $$WEBOS_INSTALL_SYSBUS_GROUPDIR
     for (type, SYSBUS_FILE_TYPE) {
         found_files = $$files("$$WEBOS_SYSBUS_DIR/*.$$type*.json")
         !isEmpty(found_files) {
+            message("Found SYSBUS_FILE_TYPE: $$found_files")
             for (found_file, found_files) {
                 $${type}.files += $$found_file
                 SYSBUS_FILES += $$found_file
