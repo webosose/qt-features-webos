@@ -1,4 +1,4 @@
-// Copyright (c) 2013-2020 LG Electronics, Inc.
+// Copyright (c) 2013-2021 LG Electronics, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,8 +24,6 @@
  * ! ALWAYS USE BLOCK COMMENTS !
  * ! IF ADDING NEW CODES, REMEMBER TO ADD THE LNE FEED !
  */
-
-QT_BEGIN_HEADER
 
 #define WEBOS_KEY_ENUM_DECLARATION enum KeyWebOS { \
         Key_webOS_PowerOnOff  = 0x01200000, \
@@ -335,7 +333,5 @@ namespace Qt {
     WEBOS_KEY_ENUM_DECLARATION;
 }
 QT_END_NAMESPACE
-
-QT_END_HEADER
 
 #endif // QWEBOSKEYEXTENSION_H
