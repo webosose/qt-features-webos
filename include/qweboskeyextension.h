@@ -101,6 +101,8 @@
         Key_webOS_UNext             = 0x0120005a, \
         Key_webOS_New               = 0x0120005b, \
         Key_webOS_Close             = 0x0120005c, \
+        Key_webOS_FPTPlay           = 0x0120005d, \
+        Key_webOS_Shahid            = 0x0120005e, \
         /* Local keys (front panel buttons) */ \
         Key_webOS_LocalUp           = 0x01200061, \
         Key_webOS_LocalDown         = 0x01200062, \
