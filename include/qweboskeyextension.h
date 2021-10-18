@@ -103,6 +103,7 @@
         Key_webOS_Close             = 0x0120005c, \
         Key_webOS_FPTPlay           = 0x0120005d, \
         Key_webOS_Shahid            = 0x0120005e, \
+        Key_webOS_Yandex            = 0x0120005f, \
         /* Local keys (front panel buttons) */ \
         Key_webOS_LocalUp           = 0x01200061, \
         Key_webOS_LocalDown         = 0x01200062, \
