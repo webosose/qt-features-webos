@@ -205,6 +205,8 @@
         Key_webOS_4K_CS_10          = 0x0120016a, \
         Key_webOS_4K_CS_11          = 0x0120016b, \
         Key_webOS_4K_CS_12          = 0x0120016c, \
+        /* For B&O remote control */ \
+        Key_webOS_BlueLong          = 0x01200171, \
         /* It is not a physical button, but acts like a key */ \
         Key_webOS_CursorShow        = 0x01200201, \
         Key_webOS_CursorHide        = 0x01200202, \
