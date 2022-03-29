@@ -1,4 +1,4 @@
-// Copyright (c) 2013-2021 LG Electronics, Inc.
+// Copyright (c) 2013-2022 LG Electronics, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -205,6 +205,9 @@
         Key_webOS_4K_CS_10          = 0x0120016a, \
         Key_webOS_4K_CS_11          = 0x0120016b, \
         Key_webOS_4K_CS_12          = 0x0120016c, \
+        /* For Gaming TV */ \
+        Key_webOS_Bendable          = 0x0120016d, \
+        Key_webOS_Game_Launcher     = 0x0120016e, \
         /* For B&O remote control */ \
         Key_webOS_BlueLong          = 0x01200171, \
         /* It is not a physical button, but acts like a key */ \
@@ -242,6 +245,9 @@
         Key_webOS_CommercialGuide   = 0x01200305, \
         Key_webOS_CommercialInfo    = 0x01200306, \
         Key_webOS_FunctionMenu      = 0x01200307, \
+        /* For Gaming TV */ \
+        Key_webOS_UsbSwitchingShort = 0x01200308, \
+        Key_webOS_UsbSwitchingLong  = 0x01200309, \
         Key_webOS_IntuitiveMenu     = 0x01200318, \
         Key_webOS_AvMode            = 0x012003FF, \
         /* Factory keys, It is used to check the specific functionality in the factory, \
