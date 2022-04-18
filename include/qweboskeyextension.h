@@ -207,7 +207,6 @@
         Key_webOS_4K_CS_12          = 0x0120016c, \
         /* For Gaming TV */ \
         Key_webOS_Bendable          = 0x0120016d, \
-        Key_webOS_Game_Launcher     = 0x0120016e, \
         /* For B&O remote control */ \
         Key_webOS_BlueLong          = 0x01200171, \
         /* It is not a physical button, but acts like a key */ \
