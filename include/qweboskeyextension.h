@@ -88,6 +88,11 @@
         Key_webOS_TeletextReveal    = 0x01200047, \
         Key_webOS_TeletextFreeze    = 0x01200048, \
         Key_webOS_TeletextPosition  = 0x01200049, \
+        Key_webOS_Wavve             = 0x0120004a, \
+        Key_webOS_CoupangPlay       = 0x0120004b, \
+        Key_webOS_Stan              = 0x0120004c, \
+        Key_webOS_Shop              = 0x0120004d, \
+        Key_webOS_Tver              = 0x0120004e, \
         Key_webOS_TeletextSize      = 0x01200050, \
         Key_webOS_TeletextInTime    = 0x01200051, \
         Key_webOS_TeletextHold      = 0x01200052, \
