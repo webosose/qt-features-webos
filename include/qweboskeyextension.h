@@ -312,6 +312,11 @@
         Key_webOS_CecSkipForward30          = 0x01202008, \
         Key_webOS_MhlScreenRemote           = 0x01202032, \
         Key_webOS_VirtualTeleText           = 0x01202042, \
+        /* For Pairing */ \
+        Key_webOS_PAIRING_M4                = 0x01202043, \
+        Key_webOS_PAIRING_IRBLASTER         = 0x01202044, \
+        Key_webOS_PAIRING_SP                = 0x01202045, \
+        Key_webOS_MRCU_DISCONNECTED         = 0x01202046, \
         /* For wearable */ \
         Key_webOS_Wearable_F1               = 0x01200400, \
         Key_webOS_Wearable_F2               = 0x01200401, \
