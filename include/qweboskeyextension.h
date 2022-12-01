@@ -216,7 +216,7 @@
         Key_webOS_UsbHeadsetMute    = 0x0120016e, \
         /* For B&O remote control */ \
         Key_webOS_BlueLong          = 0x01200171, \
-        /* For CP Key for Japan */
+        /* For CP Key for Japan */ \
         Key_webOS_Hulu              = 0x01200172, \
         Key_webOS_Nhkplus           = 0x01200173, \
         Key_webOS_Tod               = 0x01200174, \
