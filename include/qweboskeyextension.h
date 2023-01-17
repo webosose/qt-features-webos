@@ -1,4 +1,4 @@
-// Copyright (c) 2013-2022 LG Electronics, Inc.
+// Copyright (c) 2013-2023 LG Electronics, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -221,6 +221,7 @@
         Key_webOS_Nhkplus           = 0x01200173, \
         Key_webOS_Tod               = 0x01200174, \
         Key_webOS_Apps              = 0x01200175, \
+        Key_webOS_FreeviewPlay      = 0x01200176, \
         /* It is not a physical button, but acts like a key */ \
         Key_webOS_CursorShow        = 0x01200201, \
         Key_webOS_CursorHide        = 0x01200202, \
