@@ -222,6 +222,8 @@
         Key_webOS_Tod               = 0x01200174, \
         Key_webOS_Apps              = 0x01200175, \
         Key_webOS_FreeviewPlay      = 0x01200176, \
+        Key_webOS_Wink              = 0x01200177, \
+        Key_webOS_StartRu           = 0x01200178, \
         /* It is not a physical button, but acts like a key */ \
         Key_webOS_CursorShow        = 0x01200201, \
         Key_webOS_CursorHide        = 0x01200202, \
