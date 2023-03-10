@@ -356,6 +356,20 @@
         Key_webOS_Wearable_Repeat_None      = 0x01200702, \
         Key_webOS_Wearable_Shuffle_On       = 0x01200703, \
         Key_webOS_Wearable_Shuffle_Off      = 0x01200704, \
+        /* For Gamepad */ \
+        Key_webOS_Gamepad_DPAD_Up           = 0x01200705, \
+        Key_webOS_Gamepad_DPAD_Down         = 0x01200706, \
+        Key_webOS_Gamepad_DPAD_Left         = 0x01200707, \
+        Key_webOS_Gamepad_DPAD_Right        = 0x01200708, \
+        Key_webOS_Gamepad_ChannelUp         = 0x01200709, \
+        Key_webOS_Gamepad_ChannelDown       = 0x0120070a, \
+        Key_webOS_Gamepad_VolumeUp          = 0x0120070b, \
+        Key_webOS_Gamepad_VolumeDown        = 0x0120070c, \
+        Key_webOS_Gamepad_VolumeMute        = 0x0120070d, \
+        Key_webOS_Gamepad_Select            = 0x0120070e, \
+        Key_webOS_Gamepad_Back              = 0x0120070f, \
+        Key_webOS_Gamepad_Menu              = 0x01200710, \
+        Key_webOS_Gamepad_Settings          = 0x01200711, \
     };
 
 QT_BEGIN_NAMESPACE
