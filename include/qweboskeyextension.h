@@ -224,6 +224,8 @@
         Key_webOS_FreeviewPlay      = 0x01200176, \
         Key_webOS_Wink              = 0x01200177, \
         Key_webOS_StartRu           = 0x01200178, \
+        /* CP Key for India */ \
+        Key_webOS_SonyLiv           = 0x01200179, \
         /* It is not a physical button, but acts like a key */ \
         Key_webOS_CursorShow        = 0x01200201, \
         Key_webOS_CursorHide        = 0x01200202, \
