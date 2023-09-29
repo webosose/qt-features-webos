@@ -226,6 +226,11 @@
         Key_webOS_StartRu           = 0x01200178, \
         /* CP Key for India */ \
         Key_webOS_SonyLiv           = 0x01200179, \
+        /*CP Key for Global*/ \
+        Key_webOS_MoodMaker         = 0x0120017a, \
+        /*CP Key for Vietnam*/ \
+        Key_webOS_TV360             = 0x0120017b, \
+        Key_webOS_VTVGo             = 0x0120017c, \
         /* It is not a physical button, but acts like a key */ \
         Key_webOS_CursorShow        = 0x01200201, \
         Key_webOS_CursorHide        = 0x01200202, \
