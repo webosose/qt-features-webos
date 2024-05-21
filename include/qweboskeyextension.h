@@ -380,6 +380,9 @@
         Key_webOS_Gamepad_Back              = 0x0120070f, \
         Key_webOS_Gamepad_Menu              = 0x01200710, \
         Key_webOS_Gamepad_Settings          = 0x01200711, \
+        /* For Mouse special keys */ \
+        Key_webOS_Mouse_Back                = 0x01200712, \
+        Key_webOS_Mouse_Home                = 0x01200713, \
     };
 
 QT_BEGIN_NAMESPACE
