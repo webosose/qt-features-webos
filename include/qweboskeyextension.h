@@ -234,6 +234,8 @@
         /*T-Native Specific keys*/\
         Key_webOS_Lighting          = 0x0120017d, \
         Key_webOS_Shade             = 0x0120017e, \
+        /*Multikey*/\
+        Key_webOS_Multikey          = 0x0120017f, \
         /* It is not a physical button, but acts like a key */ \
         Key_webOS_CursorShow        = 0x01200201, \
         Key_webOS_CursorHide        = 0x01200202, \
