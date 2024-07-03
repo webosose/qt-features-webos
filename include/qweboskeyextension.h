@@ -385,6 +385,7 @@
         /* For Mouse special keys */ \
         Key_webOS_Mouse_Back                = 0x01200712, \
         Key_webOS_Mouse_Home                = 0x01200713, \
+        Key_webOS_Mouse_DoubleTap           = 0x01200714, \
     };
 
 QT_BEGIN_NAMESPACE
