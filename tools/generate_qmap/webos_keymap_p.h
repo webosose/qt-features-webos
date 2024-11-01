@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2018 LG Electronics, Inc.
+// Copyright (c) 2017-2024 LG Electronics, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,6 +16,10 @@
 
 #ifndef WEBOS_KEYMAP_P_H
 #define WEBOS_KEYMAP_P_H
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+namespace QEvdevKeyboardMap = QKeyboardMap;
+#endif
 
 // Keymap for WebOS specific
 // { keycode, unicode, qtcode, modifiers, flags, special }
